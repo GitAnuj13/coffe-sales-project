@@ -1,0 +1,56 @@
+MAVEN ROASTERS - EDA REPORT
+======================================================================
+
+
+    SUMMARY STATISTICS: 
+Total Revenue: $698,790.55
+Average Transaction: $4.69
+Median Transaction: $3.76
+Number of Transactions: 149,116
+    
+    
+    STORE PERFORMANCE: 
+Best Performing Store: Hell's Kitchen
+  - Revenue: $236,491.19
+  - Transactions: 50,735.0
+
+Lowest Performing Store: Lower Manhattan
+  - Revenue: $230,138.61
+    
+    
+    PRODUCT INSIGHTS: 
+Top Category: Coffee
+  - Revenue: $269,845.32
+  
+Top 3 Products:
+1. Sustainably Grown Organic Lg: $21,151.75
+2. Dark chocolate Lg: $21,006.00
+3. Latte Rg: $19,112.25
+    
+    
+TIME PATTERNS: 
+Peak Hour: 10:00 (18545 transactions)
+Busiest Day: Monday ($101,699.41)
+Average Daily Revenue: $3,860.72
+
+    
+VISUALIZATIONS CREATED: 
+1. revenue_by_store.png
+2. revenue_by_category.png
+3. daily_revenue_trend.png
+4. hourly_pattern.png
+5. price_distribution.png
+
+    
+KEY INSIGHTS: 
+1. Hell's Kitchen generates highest revenue
+2. Coffee is the dominant product category
+3. Peak business hours are around 10:00
+4. Monday is the strongest day of the week
+
+    
+NEXT STEPS: 
+Day 3: SQL Business Queries
+- Deep dive into store comparisons
+- Product performance analysis
+- Time-based patterns

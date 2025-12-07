@@ -18,7 +18,7 @@ plt.rcParams['figure.figsize'] = (12, 6)
 SERVER = "ANUJ_LAPTOP"
 DATABASE = "COFFEE_SALES"
 OUTPUT_DIR = "C:/coffe sales project/outputs/figure/"
-
+REPORTS_DIR = "C:/coffe sales project/outputs/reports/"
 # ============= CONNECT TO DATABASE =============
 print("Connecting to database...")
 conn = pyodbc.connect(
@@ -261,6 +261,65 @@ print(f"""
 6. BUSIEST DAY: {day_revenue.idxmax()}
    - Revenue: ${day_revenue.max():,.2f}
 """)
+# Generate Day 2 Report
+report_content = f"""
+    SUMMARY STATISTICS: 
+Total Revenue: ${df['total_amount'].sum():,.2f}
+Average Transaction: ${df['total_amount'].mean():.2f}
+Median Transaction: ${df['total_amount'].median():.2f}
+Number of Transactions: {len(df):,}
+    
+    
+    STORE PERFORMANCE: 
+Best Performing Store: {store_stats.index[0]}
+  - Revenue: ${store_stats.iloc[0]['Total_Revenue']:,.2f}
+  - Transactions: {store_stats.iloc[0]['Transactions']:,}
+
+Lowest Performing Store: {store_stats.index[-1]}
+  - Revenue: ${store_stats.iloc[store_stats.shape[0]-1]['Total_Revenue']:,.2f}
+    
+    
+    PRODUCT INSIGHTS: 
+Top Category: {category_stats.index[0]}
+  - Revenue: ${category_stats.iloc[0]['Revenue']:,.2f}
+  
+Top 3 Products:
+{chr(10).join([f'{i+1}. {prod}: ${rev:,.2f}' for i, (prod, rev) in enumerate(top_products.head(3).items())])}
+    
+    
+TIME PATTERNS: 
+Peak Hour: {hourly_sales.idxmax()}:00 ({hourly_sales.max()} transactions)
+Busiest Day: {day_revenue.idxmax()} (${day_revenue.max():,.2f})
+Average Daily Revenue: ${daily_revenue.mean():,.2f}
+
+    
+VISUALIZATIONS CREATED: 
+1. revenue_by_store.png
+2. revenue_by_category.png
+3. daily_revenue_trend.png
+4. hourly_pattern.png
+5. price_distribution.png
+
+    
+KEY INSIGHTS: 
+1. {store_stats.index[0]} generates highest revenue
+2. {category_stats.index[0]} is the dominant product category
+3. Peak business hours are around {hourly_sales.idxmax()}:00
+4. {day_revenue.idxmax()} is the strongest day of the week
+
+    
+NEXT STEPS: 
+Day 3: SQL Business Queries
+- Deep dive into store comparisons
+- Product performance analysis
+- Time-based patterns
+"""    
+
+print("\nGenerating Day 1 Report...")
+with open(REPORTS_DIR + 'day_1_EDA_report.txt', 'w', encoding='utf-8') as f:
+    f.write("MAVEN ROASTERS - EDA REPORT\n")
+    f.write("="*70 + "\n\n")
+    f.write(report_content)
 
 print("\n" + "="*60)
 print("EDA COMPLETE!")

@@ -172,10 +172,10 @@ features = ['day_number', 'day_of_week', 'is_weekend', 'week_number']
 X = daily_data[features].copy()
 y = daily_data['revenue'].copy()
 
-# Split data: train on first 80%, test on last 20%
-split_point = int(len(X) * 0.8)
-X_train, X_test = X[:split_point], X[split_point:]
-y_train, y_test = y[:split_point], y[split_point:]
+# Train-test split (80% train, 20% test)
+X_train, X_test, y_train, y_test = train_test_split(
+    X, y, test_size=0.2, random_state=42, shuffle=False
+)
 
 print(f"\nTraining set: {len(X_train)} days")
 print(f"Testing set: {len(X_test)} days")
@@ -215,7 +215,7 @@ print(feature_importance.to_string(index=False))
 
 # Visualization: Actual vs Predicted
 plt.figure(figsize=(14, 6))
-test_dates = daily_data['date'][split_point:]
+test_dates = daily_data.loc[X_test.index, 'date']
 plt.plot(test_dates, y_test.values, label='Actual Revenue', linewidth=2, alpha=0.7)
 plt.plot(test_dates, y_pred_test, label='Predicted Revenue', linewidth=2, linestyle='--', alpha=0.7)
 plt.title('Revenue Forecast vs Actual (Test Set)', fontsize=16, fontweight='bold')

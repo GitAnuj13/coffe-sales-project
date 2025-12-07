@@ -8,7 +8,7 @@ import pyodbc
 from sqlalchemy import create_engine
 import urllib
 from pathlib import Path
-
+from datetime import datetime
 # ============= CONFIGURATION =============
 from pathlib import Path
 # STEP 1: Get project root (etl folder)
@@ -17,6 +17,7 @@ BASE = Path(__file__).resolve().parents[1]
 DATA = BASE / "data" / "raw"
 # STEP 3: Build file path to Excel file
 EXCEL_FILE = DATA / "Coffee Shop Sales.xlsx"
+REPORTS_DIR = "C:/coffe sales project/outputs/reports/"
 print("Project Root:", BASE)
 print("Data Folder:", DATA)
 print("Excel File Path:", EXCEL_FILE)
@@ -169,7 +170,6 @@ Date Range: {df['transaction_date'].min()} to {df['transaction_date'].max()}
     
     "DATA QUALITY": f"""
 Missing Values: {missing.sum() if missing.any() else 'None'}
-Duplicate Records: {duplicates}
 Data Integrity: All foreign key relationships validated
     """,
     
@@ -190,6 +190,10 @@ Day 2: Exploratory Data Analysis (EDA)
 - Identify initial patterns
     """
 }
+print("\nGenerating Day 1 Report...")
+with open(REPORTS_DIR + 'day_1_data_ingestion_report.txt', 'w', encoding='utf-8') as f:
+    f.write("MAVEN ROASTERS - DATA INGESTION REPORT\n")
+    f.write("="*70 + "\n\n")
+    f.write(report_content["PROJECT OVERVIEW"])
 
-save_report("day1_data_ingestion", report_content)
 print("\n✓ Data ingestion complete!")

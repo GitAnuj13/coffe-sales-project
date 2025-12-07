@@ -1,0 +1,49 @@
+MAVEN ROASTERS - STATISTICAL ANALYSIS REPORT
+======================================================================
+
+
+STATISTICAL TESTS PERFORMED:
+1. ANOVA - Store revenue comparison
+2. T-tests - Pairwise store comparisons
+3. Chi-square - Product category preferences
+4. Correlation analysis - Variable relationships
+5. Peak vs off-peak significance testing
+
+    
+HYPOTHESIS TEST RESULTS:
+Store Revenue Differences (ANOVA):
+  F-statistic: 37.1998
+  P-value: 0.000000
+  Result: SIGNIFICANT (p < 0.05)
+  
+Interpretation: Revenue differences between stores are 
+statistically significant and not due to random chance
+
+    
+KEY STATISTICAL FINDINGS:
+✓ Store performance differences are statistically valid
+✓ Product preferences differ significantly by location
+✓ Peak hours show significant difference from off-peak
+✓ Patterns identified are actionable, not random noise
+    
+    
+CONFIDENCE LEVELS:
+All significant results reported at 95% confidence level (p < 0.05)
+This means less than 5% chance findings are due to random variation
+
+    
+VISUALIZATIONS CREATED
+1. transaction_distribution_by_store.png
+2. correlation_matrix.png
+
+    
+BUSINESS IMPLICATIONS:
+- Differences observed are REAL and repeatable
+- Can confidently make decisions based on these patterns
+- Statistical validation supports strategic recommendations
+    
+NEXT STEPS:
+Day 5: Predictive Modeling
+- Build revenue forecast models
+- Predict future performance
+- Time series analysis

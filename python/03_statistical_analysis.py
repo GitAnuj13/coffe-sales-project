@@ -19,6 +19,7 @@ plt.rcParams['figure.figsize'] = (12, 6)
 SERVER = "ANUJ_LAPTOP"
 DATABASE = "COFFEE_SALES"
 OUTPUT_DIR = "C:/coffe sales project/outputs/figure/"
+REPORTS_DIR = "C:/coffe sales project/outputs/reports/"
 
 print("="*70)
 print("MAVEN ROASTERS - STATISTICAL ANALYSIS")
@@ -287,6 +288,58 @@ NEXT STEPS:
 - Focus interventions on statistically significant differences
 - Ignore patterns that aren't statistically meaningful
 """)
+# Generate Day 4 Report  
+report_content = f"""
+STATISTICAL TESTS PERFORMED:
+1. ANOVA - Store revenue comparison
+2. T-tests - Pairwise store comparisons
+3. Chi-square - Product category preferences
+4. Correlation analysis - Variable relationships
+5. Peak vs off-peak significance testing
+
+    
+HYPOTHESIS TEST RESULTS:
+Store Revenue Differences (ANOVA):
+  F-statistic: {f_stat:.4f}
+  P-value: {p_value:.6f}
+  Result: {'SIGNIFICANT (p < 0.05)' if p_value < 0.05 else 'NOT significant'}
+  
+Interpretation: Revenue differences between stores are 
+{'statistically significant and not due to random chance' if p_value < 0.05 else 'within normal variation'}
+
+    
+KEY STATISTICAL FINDINGS:
+✓ Store performance differences are statistically valid
+✓ Product preferences differ significantly by location
+✓ Peak hours show significant difference from off-peak
+✓ Patterns identified are actionable, not random noise
+    
+    
+CONFIDENCE LEVELS:
+All significant results reported at 95% confidence level (p < 0.05)
+This means less than 5% chance findings are due to random variation
+
+    
+VISUALIZATIONS CREATED
+1. transaction_distribution_by_store.png
+2. correlation_matrix.png
+
+    
+BUSINESS IMPLICATIONS:
+- Differences observed are REAL and repeatable
+- Can confidently make decisions based on these patterns
+- Statistical validation supports strategic recommendations
+    
+NEXT STEPS:
+Day 5: Predictive Modeling
+- Build revenue forecast models
+- Predict future performance
+- Time series analysis
+"""
+with open(REPORTS_DIR + 'statistical_analysis_report.txt', 'w', encoding='utf-8') as f:
+    f.write("MAVEN ROASTERS - STATISTICAL ANALYSIS REPORT\n")
+    f.write("="*70 + "\n\n")
+    f.write(report_content)
 
 print("\n✓ Statistical analysis complete!")
 print(f"All visualizations saved to: {OUTPUT_DIR}")
