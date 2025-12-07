@@ -256,15 +256,15 @@ openpyxl==3.1.0
 ## 📸 Visualizations
 
 ### Revenue by Store
-![Revenue by Store](outputs/figures/revenue_by_store.png)
+![Revenue by Store](outputs/figure/revenue_by_store.png)
 
 ### Daily Revenue Trend
-![Daily Trend](outputs/figures/daily_revenue_trend.png)
+![Daily Trend](outputs/figure/daily_revenue_trend.png)
 
 ### Hourly Transaction Pattern
-![Hourly Pattern](outputs/figures/hourly_pattern.png)
+![Hourly Pattern](outputs/figure/hourly_pattern.png)
 
-*(Add actual screenshots after generating them)*
+
 
 ---
 
