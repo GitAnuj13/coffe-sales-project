@@ -339,7 +339,7 @@ This project is for educational and portfolio purposes.
 
 ## 📅 Project Timeline
 
-**Start Date:** December 2024  
+**Start Date:** December 2025  
 **Status:** In Progress 
 
 ---
