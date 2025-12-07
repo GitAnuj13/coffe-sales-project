@@ -22,8 +22,8 @@ print("Data Folder:", DATA)
 print("Excel File Path:", EXCEL_FILE)
 
 # SQL Server connection parameters
-SERVER = "ANUJ_LAPTOP"  # Change if your SQL Server is different
-DATABASE = "COFFEE_SALES"  # Change if your database name is different
+SERVER = "ANUJ_LAPTOP"  
+DATABASE = "COFFEE_SALES"  
 
 # ============= CONNECT TO SQL SERVER =============
 def get_connection():
@@ -151,5 +151,45 @@ try:
     
 except Exception as e:
     print(f"Could not verify: {e}")
+# Generate Day 1 Report
+report_content = {
+    "PROJECT OVERVIEW": f"""
+Project: Maven Roasters Data Analytics
+Date Started: {datetime.now().strftime('%Y-%m-%d')}
+Data Source: Coffee Shop Sales.xlsx
+Total Records Loaded: {len(df):,}
+    """,
+    
+    "DATA LOADED": f"""
+Stores Table: {len(stores)} stores
+Products Table: {len(products)} products  
+Transactions Table: {len(transactions):,} transactions
+Date Range: {df['transaction_date'].min()} to {df['transaction_date'].max()}
+    """,
+    
+    "DATA QUALITY": f"""
+Missing Values: {missing.sum() if missing.any() else 'None'}
+Duplicate Records: {duplicates}
+Data Integrity: All foreign key relationships validated
+    """,
+    
+    "DATABASE STRUCTURE": """
+Tables Created:
+1. stores - Store location master data
+2. products - Product catalog with pricing
+3. transactions - Transactional fact table
 
+Schema: Normalized 3NF design
+Relationships: Foreign keys enforced
+    """,
+    
+    "NEXT STEPS": """
+Day 2: Exploratory Data Analysis (EDA)
+- Generate summary statistics
+- Create visualizations
+- Identify initial patterns
+    """
+}
+
+save_report("day1_data_ingestion", report_content)
 print("\n✓ Data ingestion complete!")
