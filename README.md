@@ -340,8 +340,7 @@ This project is for educational and portfolio purposes.
 ## 📅 Project Timeline
 
 **Start Date:** December 2024  
-**Duration:** 7 days (1 hour per day)  
-**Status:** In Progress (Day 6/7)
+**Status:** In Progress 
 
 ---
 
